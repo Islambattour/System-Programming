@@ -3,7 +3,10 @@
  #include <unistd.h>
  #include <stdlib.h>
 
-#define MYCOUNT	1000
+#define MYCOUNT	1000										
+
+
+/*simple move utility for noe only support moving file to a file*/
 
 
 int main(int argc, char* argv[])
@@ -40,8 +43,16 @@ int main(int argc, char* argv[])
 	
 	}
 
-		close(fd);
-		close(fdout);
+	        close(fd);
+                close(fdout);
+
+        if(unlinkat(AT_FDCWD, argv[1], 0)<0)
+        {
+
+                printf("error during deleting");
+                exit(-4);
+        }
+	
 
 }
 
