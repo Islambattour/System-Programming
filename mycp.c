@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 
 
 
-	int fdout=openat(AT_FDCWD,argv[2], O_CREAT|O_WRONLY ,0644);
+	int fdout=open(argv[2], O_CREAT|O_WRONLY ,0644);
 
 
 	int read_num=0;
@@ -40,17 +40,7 @@ int main(int argc, char* argv[])
 	
 	}
 
-		close(fd);
-		close(fdout);
-
-	if(unlinkat(AT_FDCWD, argv[1], 0)<0)
-	{
-
-		printf("error during deleting");
-		exit(-4);
-	}
 		
-		return 0;
 
 }
 
